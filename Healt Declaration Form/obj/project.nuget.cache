@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "kYZzH6FDz9IruipM5vTxxr/WtEJqO/8ZTmv92C6rT0x9+UCW0eOtGW9AdEUb0h7Eghy23r7blOpWuQTh8lGWlQ==",
   "success": true,
   "projectFilePath": "C:\\New folder\\Healt Declaration Form\\Healt Declaration Form\\Healt Declaration Form.csproj",
+=======
+  "dgSpecHash": "pvX+Ylhddlncsj6Wv4UOKQAa5CEWIFPlkv231LG4qNtpzVHjglR6hhgZMxwFM/fdDU+ssbJtUjoj65wN+EbtVg==",
+  "success": true,
+  "projectFilePath": "C:\\New folder\\Healt Declaration Form - Testing\\Healt Declaration Form\\Healt Declaration Form.csproj",
+>>>>>>> 0b894a91089cbfc687320cff6baa1bcaf18ee110
   "expectedPackageFiles": [
     "C:\\Users\\garci\\.nuget\\packages\\aforge\\2.2.5\\aforge.2.2.5.nupkg.sha512",
     "C:\\Users\\garci\\.nuget\\packages\\aforge.video\\2.2.5\\aforge.video.2.2.5.nupkg.sha512",

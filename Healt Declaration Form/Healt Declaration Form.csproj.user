@@ -7,8 +7,11 @@
     <Compile Update="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Update="Form3.cs">
       <SubType>Form</SubType>
     </Compile>
+=======
+>>>>>>> 0b894a91089cbfc687320cff6baa1bcaf18ee110
   </ItemGroup>
 </Project>

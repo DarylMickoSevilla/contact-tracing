@@ -36,10 +36,23 @@ namespace Healt_Declaration_Form
             this.Close();
         }
 
+<<<<<<< HEAD
         private void Recordbtn_Click(object sender, EventArgs e)
         {
             RecordForm Form = new RecordForm();
             Form.Show();
+=======
+            if (Read.ShowDialog() == DialogResult.OK)
+            {
+                RecordBox1.Text = File.ReadAllText(Read.FileName);
+            }
+>>>>>>> 0b894a91089cbfc687320cff6baa1bcaf18ee110
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CodeScanner Scanner = new CodeScanner();
+            Scanner.Show();
         }
     }
 }
