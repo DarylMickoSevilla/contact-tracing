@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using AForge;
 using AForge.Video;
 using AForge.Video.DirectShow;
@@ -26,7 +27,14 @@ namespace Healt_Declaration_Form
 
         private void Startbtn_Click(object sender, EventArgs e)
         {
-
+            captureDevice = new VideoCaptureDevice(filterInfoCollection[CameraBox.SelectedIndex].MonikerString);
+            captureDevice.NewFrame += CaptureDevice_NewFrame;
+            captureDevice.Start();
+            Timer.Start();
+        }
+        private void CaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            ScannerBox.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
         private void QRCodeScanner_Load(object sender, EventArgs e)
@@ -35,6 +43,34 @@ namespace Healt_Declaration_Form
             foreach (FilterInfo filterInfo in filterInfoCollection)
                 CameraBox.Items.Add(filterInfo.Name);
             CameraBox.SelectedIndex = 0;
+        }
+
+        private void QRCodeScanner_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (captureDevice.IsRunning)
+            {
+                captureDevice.SignalToStop();
+                captureDevice.WaitForStop();
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (ScannerBox.Image != null)
+            {
+                BarcodeReader Reader = new BarcodeReader();
+                Result result = Reader.Decode((Bitmap)ScannerBox.Image);
+                if (result != null)
+                {
+                    DecodeBox.Text = result.ToString();
+                    Timer.Stop();
+                    if (captureDevice.IsRunning)
+                    {
+                        captureDevice.SignalToStop();
+                        captureDevice.WaitForStop();
+                    }
+                }
+            }
         }
     }
 }

@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Startbtn = new System.Windows.Forms.Button();
             this.CameraBox = new System.Windows.Forms.ComboBox();
             this.ScannerBox = new System.Windows.Forms.PictureBox();
             this.DecodeBox = new System.Windows.Forms.RichTextBox();
             this.CameraLabel = new System.Windows.Forms.Label();
             this.SaveBtn = new System.Windows.Forms.Button();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ScannerBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +92,11 @@
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
             // 
+            // Timer
+            // 
+            this.Timer.Interval = 1000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
             // QRCodeScanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -104,6 +111,7 @@
             this.Name = "QRCodeScanner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QR Code Scanner";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QRCodeScanner_FormClosing);
             this.Load += new System.EventHandler(this.QRCodeScanner_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ScannerBox)).EndInit();
             this.ResumeLayout(false);
@@ -119,5 +127,6 @@
         private RichTextBox DecodeBox;
         private Label CameraLabel;
         private Button SaveBtn;
+        private System.Windows.Forms.Timer Timer;
     }
 }
