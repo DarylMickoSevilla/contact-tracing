@@ -52,8 +52,12 @@
             this.DateBox8 = new System.Windows.Forms.TextBox();
             this.Datelabel = new System.Windows.Forms.Label();
             this.DateFormat = new System.Windows.Forms.Label();
-            this.RecordBox1 = new System.Windows.Forms.RichTextBox();
-            this.Recordbtn2 = new System.Windows.Forms.Button();
+            this.QRCodebtn = new System.Windows.Forms.Button();
+            this.OrLabel = new System.Windows.Forms.Label();
+            this.Labelor = new System.Windows.Forms.Label();
+            this.Recordbtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Exitbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NameBox1
@@ -222,7 +226,7 @@
             // Savebtn
             // 
             this.Savebtn.BackColor = System.Drawing.SystemColors.Info;
-            this.Savebtn.Location = new System.Drawing.Point(212, 266);
+            this.Savebtn.Location = new System.Drawing.Point(208, 271);
             this.Savebtn.Name = "Savebtn";
             this.Savebtn.Size = new System.Drawing.Size(75, 23);
             this.Savebtn.TabIndex = 19;
@@ -266,31 +270,74 @@
             this.DateFormat.TabIndex = 23;
             this.DateFormat.Text = "*dd/mm/yy*";
             // 
-            // RecordBox1
+            // QRCodebtn
             // 
-            this.RecordBox1.Location = new System.Drawing.Point(66, 325);
-            this.RecordBox1.Name = "RecordBox1";
-            this.RecordBox1.Size = new System.Drawing.Size(373, 159);
-            this.RecordBox1.TabIndex = 24;
-            this.RecordBox1.Text = "";
+            this.QRCodebtn.Location = new System.Drawing.Point(188, 330);
+            this.QRCodebtn.Name = "QRCodebtn";
+            this.QRCodebtn.Size = new System.Drawing.Size(113, 23);
+            this.QRCodebtn.TabIndex = 26;
+            this.QRCodebtn.Text = "QR Code Scanner";
+            this.QRCodebtn.UseVisualStyleBackColor = true;
+            this.QRCodebtn.Click += new System.EventHandler(this.QRCodebtn_Click);
             // 
-            // Recordbtn2
+            // OrLabel
             // 
-            this.Recordbtn2.Location = new System.Drawing.Point(189, 513);
-            this.Recordbtn2.Name = "Recordbtn2";
-            this.Recordbtn2.Size = new System.Drawing.Size(108, 23);
-            this.Recordbtn2.TabIndex = 25;
-            this.Recordbtn2.Text = "Display Record";
-            this.Recordbtn2.UseVisualStyleBackColor = true;
-            this.Recordbtn2.Click += new System.EventHandler(this.Recordbtn2_Click);
+            this.OrLabel.AutoSize = true;
+            this.OrLabel.Location = new System.Drawing.Point(179, 312);
+            this.OrLabel.Name = "OrLabel";
+            this.OrLabel.Size = new System.Drawing.Size(137, 15);
+            this.OrLabel.TabIndex = 27;
+            this.OrLabel.Text = "Do you have a QR Code?";
+            // 
+            // Labelor
+            // 
+            this.Labelor.AutoSize = true;
+            this.Labelor.Location = new System.Drawing.Point(226, 297);
+            this.Labelor.Name = "Labelor";
+            this.Labelor.Size = new System.Drawing.Size(38, 15);
+            this.Labelor.TabIndex = 28;
+            this.Labelor.Text = "--or--";
+            // 
+            // Recordbtn
+            // 
+            this.Recordbtn.Location = new System.Drawing.Point(66, 410);
+            this.Recordbtn.Name = "Recordbtn";
+            this.Recordbtn.Size = new System.Drawing.Size(133, 23);
+            this.Recordbtn.TabIndex = 29;
+            this.Recordbtn.Text = "Open Recorded Form";
+            this.Recordbtn.UseVisualStyleBackColor = true;
+            this.Recordbtn.Click += new System.EventHandler(this.Recordbtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(66, 392);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(204, 15);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Do you want to look for your Record?";
+            // 
+            // Exitbtn
+            // 
+            this.Exitbtn.Location = new System.Drawing.Point(445, 410);
+            this.Exitbtn.Name = "Exitbtn";
+            this.Exitbtn.Size = new System.Drawing.Size(75, 23);
+            this.Exitbtn.TabIndex = 31;
+            this.Exitbtn.Text = "Exit";
+            this.Exitbtn.UseVisualStyleBackColor = true;
+            this.Exitbtn.Click += new System.EventHandler(this.Exitbtn_Click);
             // 
             // HealthDeclarationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 558);
-            this.Controls.Add(this.Recordbtn2);
-            this.Controls.Add(this.RecordBox1);
+            this.ClientSize = new System.Drawing.Size(578, 460);
+            this.Controls.Add(this.Exitbtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Recordbtn);
+            this.Controls.Add(this.Labelor);
+            this.Controls.Add(this.OrLabel);
+            this.Controls.Add(this.QRCodebtn);
             this.Controls.Add(this.DateFormat);
             this.Controls.Add(this.Datelabel);
             this.Controls.Add(this.DateBox8);
@@ -316,6 +363,7 @@
             this.Controls.Add(this.NameLabel1);
             this.Controls.Add(this.NameBox1);
             this.Name = "HealthDeclarationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Health Declaration Form";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -348,7 +396,11 @@
         private TextBox DateBox8;
         private Label Datelabel;
         private Label DateFormat;
-        private RichTextBox RecordBox1;
-        private Button Recordbtn2;
+        private Button QRCodebtn;
+        private Label OrLabel;
+        private Label Labelor;
+        private Button Recordbtn;
+        private Label label1;
+        private Button Exitbtn;
     }
 }
